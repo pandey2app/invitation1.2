@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सदानीरा महोत्सव | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .noto-serif {
+            font-family: "Noto Serif Devanagari", serif;
+        }
+
+        .baloo-2 {
+            font-family: "Baloo 2", sans-serif;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-pink-200 min-h-screen flex flex-col items-center justify-between">
+    <!-- Navigation Bar -->
+    <header class="bg-pink-500 w-full py-4 flex justify-center items-center">
+        <nav class="text-white text-lg flex space-x-6">
+            <a href="https://sadaneera.netlify.app" class="hover:underline">Home</a>
+            <a href="https://sadaneera.netlify.app/cards" class="hover:underline">All Cards</a>
+            <a href="https://sadaneera.netlify.app/about-us" class="hover:underline">About Us</a>
+            <a href="https://sadaneera.netlify.app/contact-us" class="hover:underline">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Main Banner -->
+    <div class="text-center py-10">
+        <h1 class="text-pink-500 text-4xl md:text-6xl noto-serif font-bold uppercase">सदानीरा महोत्सव - 2024</h1>
+        <p class="text-red-500 mt-4 text-lg md:text-xl">आइये साहित्य को खेतों की मेड तक ले चलें...</p>
+        <p class="text-green-700 mt-6 text-sm md:text-lg">&#x21E9; कार्ड एडमिन &#x21E9;</p>
+        <button onclick="openModal('loginModal')"
+            class="mt-2 px-6 py-3 bg-blue-600 text-white font-bold text-xl baloo-2 rounded-md hover:bg-blue-700">
+            लॉगिन / रजिस्टर 
+        </button>
+    </div>
+
+    <!-- Event Info Section -->
+    <div class="bg-white w-11/12 max-w-4xl mx-auto p-6 shadow-lg rounded-lg">
+        <h2 class="text-pink-700 text-3xl baloo-2 font-bold mb-4 text-center">हमारे बारे में !</h2>
+        <p class="text-gray-800 noto-serif text-lg">पाश्चात्य संक्रमण से मरते सामाजिक मूल्यों की पुनर्स्थापना की जिद्द का नाम है सदानीरा उत्सव! एक प्रयास है कि गाँव के चौक चौराहे पर खड़े हो कर अश्लील गीतों पर चर्चा करते लड़कों की टोली दिनकर की कविताओं और रेणु की कहानियों पर चर्चा करे। हम प्रयासरत हैं कि बिहार का वह ग्रामीण क्षेत्र जो कभी अपराधियो की गोलियों की तड़तड़ाहट के लिए जाना जाता था, वह अब देश के मशहूर कवियों की कविताओं पर अनायास ही गूंज उठने वाली तालियों के लिए जाना जाय।
+
+        </p>
+        <div class="mt-6 flex justify-center">
+            <a href="https://sadaneera.netlify.app/join" class="px-6 py-3 bg-green-600 text-white font-bold baloo-2 rounded-md hover:bg-green-700">
+                हमसे जुड़ें
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-pink-500 w-full py-4 text-white text-center">
+        <p>&copy; 2024 Aditya Prakash Pandey | Sadanira Mahotsav</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal flex">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2 class="text-pink-600 text-2xl baloo-2 text-center mb-4">Login</h2>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Username" class="w-full px-4 py-2 mb-3 border rounded-md">
+                <input type="password" id="loginPassword" placeholder="Password" class="w-full px-4 py-2 mb-3 border rounded-md">
+                <button type="submit" class="w-full py-2 bg-blue-600 text-white font-bold baloo-2 rounded-md">Login</button>
+                <p class="mt-4 text-center">Don't have an account? <span class="text-blue-600 cursor-pointer"
+                        onclick="openModal('registerModal'); closeModal('loginModal')">Register</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registerModal" class="modal flex">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2 class="text-pink-600 text-2xl baloo-2 text-center mb-4">Register</h2>
+            <form id="registerForm">
+                <input type="text" id="registerName" placeholder="Full Name" class="w-full px-4 py-2 mb-3 border rounded-md">
+                <input type="text" id="registerUsername" placeholder="Username" class="w-full px-4 py-2 mb-3 border rounded-md">
+                <input type="email" id="registerEmail" placeholder="Email" class="w-full px-4 py-2 mb-3 border rounded-md">
+                <input type="password" id="registerPassword" placeholder="Password" class="w-full px-4 py-2 mb-3 border rounded-md">
+                <button type="submit" class="w-full py-2 bg-green-600 text-white font-bold baloo-2 rounded-md">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Open modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        // Close modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // API Endpoints (Replace with your actual API endpoints)
+        const loginApiUrl = 'http://localhost:5000/api/auth/login';
+        const registerApiUrl = 'http://localhost:5000/api/auth/register';
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            fetch(loginApiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('username', data.username);
+                    closeModal('loginModal');
+                    alert('Logged in successfully!');
+                    location.replace('/src/card.html')
+                } else {
+                    alert('Login failed: ');
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error);
+            });
+        });
+
+        // Handle registration form submission
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value;
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            console.log(name + ': ' + username );
+            fetch(registerApiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    username: username,
+                    email: email,
+                    password: password
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('username', data.username);
+                    closeModal('registerModal');
+                    alert('Registered successfully!');
+                    location.replace('/src/card.html')
+                } else {
+                    alert('Registration failed: ');
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error);
+            });
+        });
+    </script>
+</body>
+
+</html>
