@@ -170,7 +170,13 @@
             const username = document.getElementById('registerUsername').value;
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
-            console.log(name + ': ' + username );
+            console.log(JSON.stringify({
+                    name: name,
+                    username: username,
+                    email: email,
+                    password: password
+                }));
+
             fetch(registerApiUrl, {
                 method: 'POST',
                 headers: {
